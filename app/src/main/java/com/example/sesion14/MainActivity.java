@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
             ResultSet rs=st.executeQuery("SELECT * FROM usuarios where codigo='"+txtUsu.getText().toString()+"'");
             if(rs.next()){
 
-                Toast.makeText(getApplicationContext(),"Conexion establecida",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Conexion establecida 1.1",Toast.LENGTH_SHORT).show();
             }
         }catch (Exception e){
             Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
             StrictMode.ThreadPolicy pol=new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(pol);
             Class.forName("net.sourceforge.jtds.jdbc.Driver");
-            cnn = DriverManager.getConnection("jdbc:jtds:sqlserver://169.254.57.117:1433/DBProyecto;"+
+            cnn = DriverManager.getConnection("jdbc:jtds:sqlserver://127.0.0.1:1433/DBProyecto;"+
                     "instance=MSSQLSERVER;user=sa;password=nerio123");
         }catch (Exception e){
             Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
