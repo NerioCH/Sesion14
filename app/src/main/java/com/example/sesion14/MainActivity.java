@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
             Statement st=conexionBD().createStatement();
             ResultSet rs=st.executeQuery("SELECT * FROM usuarios where codigo='"+txtUsu.getText().toString()+"'");
             if(rs.next()){
-                Toast.makeText(getApplicationContext(),"Conexion establecida Adrian",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Conexion establecida Nerio",Toast.LENGTH_SHORT).show();
             }
         }catch (Exception e){
             Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
