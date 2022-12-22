@@ -15,13 +15,13 @@ import java.sql.Statement;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText txtUsu, txtPass;
+    private EditText txtUsu, txtP;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         txtUsu = findViewById(R.id.txtUsuario);
-        txtPass = findViewById(R.id.txtPassword);
+        txtP = findViewById(R.id.txtPassword);
     }
 
     public void Consulta(View view){
@@ -29,8 +29,7 @@ public class MainActivity extends AppCompatActivity {
             Statement st=conexionBD().createStatement();
             ResultSet rs=st.executeQuery("SELECT * FROM usuarios where codigo='"+txtUsu.getText().toString()+"'");
             if(rs.next()){
-
-                Toast.makeText(getApplicationContext(),"Conexion establecida 1.1",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Conexion establecida Adrian",Toast.LENGTH_SHORT).show();
             }
         }catch (Exception e){
             Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
