@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".frmCliente">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Menu Cliente"
+        app:titleTextColor="#FDF7F7"
+        tools:layout_editor_absoluteX="1dp" />
+
+    <LinearLayout
+        android:layout_width="336dp"
+        android:layout_height="509dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/button16"
+            android:layout_width="156dp"
+            android:layout_height="156dp"
+            android:layout_margin="5dp"
+            android:onClick="RealizarPedidos"
+            android:text="Realizar Pedido"
+            app:icon="?android:attr/actionModeFindDrawable" />
+
+        <Button
+            android:id="@+id/button15"
+            android:layout_width="156dp"
+            android:layout_height="156dp"
+            android:layout_margin="5dp"
+            android:text="Reanudar Pedido"
+            app:icon="@android:drawable/stat_notify_more" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="338dp"
+        android:layout_height="173dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="156dp"
+            android:layout_height="156dp"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:text="Listar Pedidos"
+            app:icon="?attr/actionModePasteDrawable" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="156dp"
+            android:layout_height="156dp"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:onClick="Salir"
+            android:text="Salir a Login"
+            app:icon="@android:drawable/ic_lock_power_off" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

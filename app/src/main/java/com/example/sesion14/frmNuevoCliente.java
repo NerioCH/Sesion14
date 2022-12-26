@@ -2,54 +2,42 @@ package com.example.sesion14;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.sesion14.Clases.Producto;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class MainActivity extends AppCompatActivity {
+public class frmNuevoCliente extends AppCompatActivity {
+    private EditText txtNom, txtAp, txtDN, txtDirec;
 
-    private EditText txtUsu, txtP;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        txtUsu = findViewById(R.id.txtUsuario);
-        txtP = findViewById(R.id.txtPassword);
+        setContentView(R.layout.activity_frm_nuevo_cliente);
+        txtNom = findViewById(R.id.txtNombre);
+        txtAp = findViewById(R.id.txtApellidos);
+        txtDN= findViewById(R.id.txtDNI);
+        txtDirec= findViewById(R.id.txtDireccion);
     }
 
-    public void Consulta(View view){
+    public void InsertarCliente(View view){
         try {
             Statement st=conexionBD().createStatement();
-            ResultSet rs=st.executeQuery("SELECT * FROM usuarios where logeo='"+txtUsu.getText().toString()+"' and clave='"+txtP.getText().toString()+"'");
-            if(rs.next()){
-                Toast.makeText(getApplicationContext(),"TOOOOOODO OK",Toast.LENGTH_SHORT).show();
-                String tipoUser = rs.getString(2);
-                if (tipoUser.compareTo("TPU00001") == 0) { // CLIENTE
-                    Intent x = new Intent(MainActivity.this, frmCliente.class);
-                    startActivity(x);
-                }
-                if (tipoUser.compareTo("TPU00002") == 0) { // ADMIN
-                    Intent x = new Intent(MainActivity.this, frmAdmin.class);
-                    startActivity(x);
-                }
-                if (tipoUser.compareTo("TPU00003") == 0) { // INVITADO
-                    Intent x = new Intent(MainActivity.this, frmInvitado.class);
-                    startActivity(x);
-                }
-            }
+            ResultSet rs=st.executeQuery("INSERT INTO clientes VALUES('CLI00005','USU00001','"+txtNom.getText()+"','" +txtAp.getText()+"','"+txtDN.getText()+"','"+txtDirec.getText()+"')");
+            Toast.makeText(this, "Cliente Agregado", Toast.LENGTH_SHORT).show();
         }catch (Exception e){
             Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
         }
-    }
 
+    }
     public Connection conexionBD(){
         Connection cnn = null;
         try {
